@@ -1,0 +1,30 @@
+﻿@model WebThuySinh.Models.Products
+
+@{
+    ViewBag.Title = "Delete";
+
+}
+
+
+<form action="/admin/Product/Delete/@Model.ProductID" method="post">
+
+    <input type="hidden" name="Id" value="@Model.ProductID">
+    <div class="row">
+        <div class="col-md-6">
+            <th>tên phòng</th>
+            <td>@Model.ProductName</td>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <th>tên phòng</th>
+            <td>@Model.CategoryID</td>
+        </div>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-success">Delete</button>
+    <a href="/admin/Product" class="btn btn-danger">cancel</a>
+ <form>

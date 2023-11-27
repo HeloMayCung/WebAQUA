@@ -1,0 +1,120 @@
+﻿@model List<WebThuySinh.Models.Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container mt-5 ">
+    <div class="title m-auto "> <span class="title-head module-title index-title bg-danger text-uppercase" style="width:200px ; font-size: 35px ; ">Các dòng tép cảnh</span></div>
+
+    <div class="row d-flex mt-2">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3">
+                <div class="card align-items-center">
+                    <img src="/Image/@item.Image" class="card-img-top" height="200px">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p>@item.Price</p>
+                        <p>@item.QuantityInStock </p>
+                        <a class="btn btn-primary" href="~/Amdin/Product/Detail/@item.ProductID">Mua</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="mt-2">
+        <tr>
+            <td colspan="3">
+                <ul class="pagination justify-content-center">
+                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </div>
+</div>
+
+<div class="container mt-5 ">
+    <div class="title m-auto "> <span class="title-head module-title index-title bg-danger text-uppercase" style="width:200px ; font-size: 35px ; ">Các dòng cá cảnh</span></div>
+
+    <div class="row d-flex mt-2">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3">
+                <div class="card align-items-center">
+                    <img src="/Image/@item.Image" class="card-img-top" height="200px">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p>@item.Price</p>
+                        <p>@item.QuantityInStock </p>
+                        <a class="btn btn-primary" href="~/admin/Product/Detail/@item.ProductID">Mua</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="mt-5">
+        <tr>
+            <td colspan="3">
+                <ul class="pagination justify-content-center">
+                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </div>
+</div>
+
+<div class="container mt-5 ">
+    <div class="title m-auto "> <span class="title-head module-title index-title bg-danger text-uppercase" style="width:200px ; font-size: 35px ; ">Các hồ mẫu</span></div>
+
+    <div class="row d-flex mt-2">
+        @foreach (var item in Model)
+        {
+            <div class="col-xl-3">
+                <div class="card align-items-center">
+                    <img src="/Image/@item.Image" class="card-img-top" height="200px">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.ProductName</h5>
+                        <p class="card-text">@item.Description</p>
+                        <p>@item.Price</p>
+                        <p>@item.QuantityInStock </p>
+                        <a class="btn btn-primary" href="~/Product/Detail/@item.ProductID">Mua</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="mt-5">
+        <tr>
+            <td colspan="3">
+                <ul class="pagination justify-content-center">
+                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/Home/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </div>
+</div>
+

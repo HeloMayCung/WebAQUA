@@ -1,0 +1,98 @@
+﻿@model AQUA_WEB.ViewModel.RegisterVM
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+<body>
+    <div class="site">
+        <main>
+          
+            <div class="container form" id="container">
+         
+                <div class="form-container sign-up-container">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+                    {
+                        <form id="form-signup">
+                            <h1 class="title">Create Account</h1>
+                            <form>
+
+
+                                @Html.TextBoxFor(temp => temp.Username, new { placeholder = "Name User", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Username)
+
+                                @Html.TextBoxFor(temp => temp.Email, new { placeholder = "Email", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Email)
+
+                                @Html.PasswordFor(temp => temp.Password, new { placeholder = "Password", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Password)
+
+
+                                @Html.TextBoxFor(temp => temp.ConfirmPassword, new { placeholder = "ConfirmPassword", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.ConfirmPassword)
+
+                                @Html.TextBoxFor(temp => temp.Moblie, new { placeholder = "ConfirmPassword", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.ConfirmPassword)
+
+                                @Html.TextBoxFor(temp => temp.DateOfBirth, new { placeholder = "DateOfBirth", @class = "form-control" , type="date"})
+                                @Html.ValidationMessageFor(temp => temp.DateOfBirth)
+
+                                <button id="signup"
+                                       class="btn"
+                                       type="submit"
+                                       value="Sign up" >
+                                </button>
+                            </form>
+                        </form>
+                    }
+                    </div>
+                <div class="form-container sign-in-container">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                    {
+                        <form>
+                            <h1 class="title">Sign in</h1>
+                            <form>
+                                @Html.TextBoxFor(temp => temp.Username, new { placeholder = "Name User", @class = "form-control" })
+                                @Html.ValidationMessageFor(temp => temp.Username)
+
+                                @*<input type="password"
+        id="Pwd-signin"
+        placeholder="Password" />*@
+                                @Html.PasswordFor(temp => temp.Password, new { placeholder = "Password", @class = "form-control" })
+                                <input id="signin"
+                                       class="btn"
+                                       type="submit"
+                                       value="Sign in" />
+                            </form>
+                        </form>
+                    }
+                    </div>
+                    <div class="overlay-container">
+                        <div class="overlay">
+                            <div class="overlay-panel overlay-left">
+                                <h1>Welcome Back!</h1>
+                                <p>
+                                    To keep connected with us please login with your
+                                    personal info
+                                </p>
+                                <button class="btn ghost" id="signIn">Sign In</button>
+                            </div>
+                            <div class="overlay-panel overlay-right">
+                                <h1>Hello, Friend!</h1>
+                                <p>
+                                    Enter your personal details and start journey with us
+                                </p>
+                                <button class="btn ghost" id="signUp">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+         
+            </main>
+
+    </div>
+    <script src="~/JS/Scripts/script.js"></script>
+    <script src="~/JS/login.js"></script>
+</body>

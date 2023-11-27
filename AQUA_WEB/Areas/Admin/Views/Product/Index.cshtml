@@ -1,0 +1,110 @@
+﻿@model List<WebThuySinh.Models.Products>
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<div class="container mt-5">
+    <div class="mt-5 d-flex justify-content-center">
+        <h5 class="">Bảng danh sách sản phẩm </h5>
+    </div>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th>Name</th>
+                <th>QuantityInStock</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Function</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            <img src="~/Image/@item.Image"
+                                 alt=""
+                                 style="width: 45px; height: 45px"
+                                 class="rounded-circle" />
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">@item.ProductName</p>
+
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
+                        <p class="fw-normal mb-1">@item.QuantityInStock</p>
+
+                    </td>
+
+                    <td>
+                        <span class=" badge-success rounded-pill d-inline">@item.CategoryID</span>
+                    </td>
+
+                    <td>@item.Price</td>
+
+                    <td>@item.Description</td>
+
+                    <td>
+                        <a href="/admin/Product/Update/@item.ProductID" type="button" class="text-decoration-none btn btn-link btn-sm btn-rounded">
+                            Update
+                        </a>
+                        |
+                        <a href="/admin/Product/Delete/@item.ProductID" type="button" class="text-decoration-none btn btn-link btn-sm btn-rounded">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+
+
+            }
+
+        </tbody>
+
+        @*<div>
+                <tr>
+                    <td colspan="3">
+                        <ul class="pagination justify-content-center">
+                            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="/admin/SanPham/index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                                        @(i+1)
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </td>
+                </tr>
+            </div>*@
+    </table>
+
+    <div class="mt-2">
+        <tr>
+            <td colspan="3">
+                <ul class="pagination justify-content-center">
+                    @for (int i = 0; i < ViewBag.NoOfPages; i++)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="/admin/Product/Index?SortColumn=@ViewBag.SortColumn&IconClass=@ViewBag.IconClass&page=@(i+1)">
+                                @(i+1)
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </div>
+</div>
+
+
+
+

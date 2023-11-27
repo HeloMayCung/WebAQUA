@@ -1,0 +1,194 @@
+﻿@model WebThuySinh.Models.Products
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+
+
+<style>
+    .custom-form {
+        width: 500px;
+        margin:auto;
+        padding:20px;
+        
+    }
+</style>
+<div class="container mx-auto" style="width: 800px; background-image: linear-gradient(135deg, #ff00ba 0%, #fae713 100%); border-radius: 30px;">
+    <span style="font-size:30px;display:flex;justify-content:center">Thêm sản phẩm mới</span>
+    <div style="margin-left:40%"><img src="~/Image/LogoTep.jpg" width="150px" , height="150px" class="rounded-circle"></div>
+    @using (Html.BeginForm("Create", "Product", new { area = "Admin" }, FormMethod.Post, new { enctype = "multipart/form-data", @class = "custom-form " }))
+    {
+
+        <div class="row ">
+            <div class="col-md-12">
+                @Html.LabelFor(row => row.ProductName, "ProductName")
+                @Html.TextBoxFor(row => row.ProductName, new { @class = "form-control", placeholder = "Tên sản phẩm" })
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.LabelFor(row => row.Image, "Image")
+                @Html.TextBoxFor(row => row.Image, new { @class = "form-control", placeholder = "Thêm ảnh" })
+
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.LabelFor(row => row.ImageProducts, "More Image")
+                @Html.TextBoxFor(row => row.ImageProducts, new { @class = "form-control", placeholder = "Thêm nhiều ảnh trưng bày" })
+
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+                @Html.LabelFor(row => row.Price, "Price")
+                @Html.TextBoxFor(row => row.Price, new { @class = "form-control", placeholder = "Giá" })
+                @Html.ValidationMessageFor(row => row.Price)
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                @Html.LabelFor(row => row.Description, "Description")
+                @Html.TextBoxFor(row => row.Description, new { @class = "form-control", placeholder = "Miêu tả" })
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                @Html.LabelFor(row => row.QuantityInStock, "QuantityInStock")
+                @Html.TextBoxFor(row => row.QuantityInStock, new { @class = "form-control", placeholder = "Số lượng " })
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+
+                @Html.LabelFor(row => row.CategoryID, "CategoryID")
+                @Html.DropDownListFor(row => row.CategoryID,
+               new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"), "Hãy chọn mã loại ...",
+               new { @class = "form-control" })
+
+            </div>
+        </div>
+
+
+
+
+        @*@Html.ValidationSummary()*@
+        <button style="margin:auto ; width:100px" type="submit" class="btn btn-success">Insert</button>
+        <a href="/admin/Product" class="btn btn-danger">Cancel</a>
+
+    }
+
+</div>
+
+@*Form đăng nhap*@
+
+
+@*<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+              rel="stylesheet" />
+        <link rel="stylesheet" href="~/Content/login.css" />
+        <link rel="stylesheet" href="~/Content/responsive.css" />
+
+    </head>
+    <body>
+        <div class="site">
+            <main>
+                <div class="container form" id="container">
+                    <div class="form-container sign-up-container">
+                        <form id="form-signup">
+                            <h1 class="title">Create Account</h1>
+                            <form>
+
+                                <input type="text" id="name" placeholder="Name" />
+                                <input type="email"
+                                       id="Email-signup"
+                                       placeholder="Email"
+                                       autocomplete="off" />
+                                <input type="password"
+                                       id="Pwd-signup"
+                                       placeholder="Password" />
+                                <input type="password"
+                                       id="Pwd-signin"
+                                       placeholder="ConfirmPassword" />
+                                <input id="signup"
+                                       class="btn"
+                                       type="submit"
+                                       value="Sign up"/>
+                            </form>
+                        </form>
+                    </div>
+                    <div class="form-container sign-in-container">
+                        <form >
+                            <h1 class="title">Sign in</h1>
+                            <form>
+                                <input type="email"
+                                       id="Email-signin"
+                                       placeholder="Email"
+                                       autocomplete="off" />
+                                <input type="password"
+                                       id="Pwd-signin"
+                                       placeholder="Password" />
+
+                                <input id="signin"
+                                       class="btn"
+                                       type="submit"
+                                       value="Sign in" />
+                            </form>
+                        </form>
+                    </div>
+                    <div class="overlay-container">
+                        <div class="overlay">
+                            <div class="overlay-panel overlay-left">
+                                <h1>Welcome Back!</h1>
+                                <p>
+                                    To keep connected with us please login with your
+                                    personal info
+                                </p>
+                                <button class="btn ghost" id="signIn">Sign In</button>
+                            </div>
+                            <div class="overlay-panel overlay-right">
+                                <h1>Hello, Friend!</h1>
+                                <p>
+                                    Enter your personal details and start journey with us
+                                </p>
+                                <button class="btn ghost" id="signUp">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+        <script src="~/Scripts/script.js"></script>
+        <script src="~/Scripts/login.js"></script>
+    </body>
+    </html>*@
+
